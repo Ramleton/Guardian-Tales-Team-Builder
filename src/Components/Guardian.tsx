@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 type Character = {
     name: string,
@@ -20,11 +20,14 @@ interface Props {
 }
 
 const Guardian: React.FC<Props> = ({ guardian }) => {
-    console.log(guardian.img)
+    const [selected, setSelected] = useState(false);
+
     return (
-        <div>
+        <div onClick={ () => setSelected(!selected) } className="guardian">
             <img className="portrait" src={guardian.img} />
-            <p>{guardian.name}</p>
+            <div className="description">
+                <p>{guardian.name}</p>
+            </div>
         </div>
     );
 }

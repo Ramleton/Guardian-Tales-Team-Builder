@@ -14,7 +14,7 @@ const App: React.FC = () => {
     const data: [string, any] = require('./guardian_stats.json');
     const guardians: any = Object.entries(data).map(([chrName, character]) => {
       character.name = chrName;
-      character.img = "";
+      character.img = `/Images/Character_Portraits/${chrName}.jpg`;
       return character
     });
     // return guardians
