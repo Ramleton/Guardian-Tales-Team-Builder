@@ -16,3 +16,11 @@ body {
   background-color: cadetblue;
   text-align: center;
 }
+
+.roster {
+  background-color: indigo;
+}
+
+.list {
+  background-color: crimson;
+}
