@@ -69,7 +69,7 @@
         "crit": 2,
         "heal": 0,
         "chain": "Airborne to Downed",
-        "party_buff": "crit Hit chance +36%"
+        "party_buff": "Crit Hit chance +36%"
     },
     "Eugene": {
         "school": "Light",
@@ -105,7 +105,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Injured to Downed",
-        "party_buff": "hp +40%"
+        "party_buff": "HP +40%"
     },
     "Gabriel": {
         "school": "Light",
@@ -153,7 +153,7 @@
         "crit": 5,
         "heal": 0,
         "chain": "Airborne to Injured",
-        "party_buff": "hp +40%"
+        "party_buff": "HP +40%"
     },
     "Lapice": {
         "school": "Light",
@@ -189,6 +189,174 @@
         "crit": 0,
         "heal": 1415,
         "chain": "Airborne to Downed",
-        "party_buff": "crit Hit chance +36%"
+        "party_buff": "Crit Hit chance +36%"
+    },
+    "Lupina": {
+        "school": "Dark",
+        "tier": 3,
+        "atk": 873,
+        "hp": 32817,
+        "def": 267,
+        "dr": 18,
+        "crit": 0,
+        "heal": 0,
+        "chain": "Injured to Airborne",
+        "party_buff": "Crit Hit chance +36%"
+    },
+    "Lynn": {
+        "school": "Fire",
+        "tier": 3,
+        "atk": 1028,
+        "hp": 31281,
+        "def": 369,
+        "dr": 16,
+        "crit": 0,
+        "heal": 0,
+        "chain": "Downed to Injured",
+        "party_buff": "Melee Atk +50%"
+    },
+    "Marina": {
+        "school": "Water",
+        "tier": 3,
+        "atk": 836,
+        "hp": 37752,
+        "def": 505,
+        "dr": 19,
+        "crit": 0,
+        "heal": 0,
+        "chain": "All to Injured",
+        "party_buff": "HP +40%"
+    },
+    "Mayreel": {
+        "school": "Earth",
+        "tier": 3,
+        "atk": 962,
+        "hp": 31528,
+        "def": 208,
+        "dr": 22,
+        "crit": 0,
+        "heal": 0,
+        "chain": "Downed to Injured",
+        "party_buff": "Crit Hit chance +36%"
+    },
+    "Miya": {
+        "school": "Fire",
+        "tier": 3,
+        "atk": 962,
+        "hp": 31528,
+        "def": 208,
+        "dr": 22,
+        "crit": 0,
+        "heal": 0,
+        "chain": "Downed to Injured",
+        "party_buff": "Crit Hit chance +36%"
+    },
+    "Nari": {
+        "school": "Basic",
+        "tier": 3,
+        "atk": 964,
+        "hp": 28897,
+        "def": 136,
+        "dr": 18,
+        "crit": 0,
+        "heal": 0,
+        "chain": "Range Atk +50%",
+        "party_buff": "Downed to Airborne"
+    },
+    "Noxia": {
+        "school": "Dark",
+        "tier": 3,
+        "atk": 874,
+        "hp": 30674,
+        "def": 221,
+        "dr": 14,
+        "crit": 3,
+        "heal": 0,
+        "chain": "All to Airborne",
+        "party_buff": "HP +40%"
+    },
+    "Oghma": {
+        "school": "Dark",
+        "tier": 3,
+        "atk": 737,
+        "hp": 34690,
+        "def": 212,
+        "dr": 22,
+        "crit": 0,
+        "heal": 0,
+        "chain": "Downed to Injured",
+        "party_buff": "Def +45%"
+    },
+    "Plitvice": {
+        "school": "Fire",
+        "tier": 3,
+        "atk": 801,
+        "hp": 32625,
+        "def": 195,
+        "dr": 22,
+        "crit": 3,
+        "heal": 0,
+        "chain": "Injured to Downed",
+        "party_buff": "Fire Atk +50%"
+    },
+    "Rue": {
+        "school": "Earth",
+        "tier": 3,
+        "atk": 998,
+        "hp": 31613,
+        "def": 399,
+        "dr": 6,
+        "crit": 5,
+        "heal": 0,
+        "chain": "Downed to Injured",
+        "party_buff": "Earth Atk +50%"
+    },
+    "Seaside Sohee": {
+        "school": "Basic",
+        "tier": 3,
+        "atk": 865,
+        "hp": 31026,
+        "def": 226,
+        "dr": 16,
+        "crit": 0,
+        "heal": 0,
+        "chain": "Injured to Airborne",
+        "party_buff": "Melee Atk +50%"
+    },
+    "Tinia": {
+        "school": "Earth",
+        "tier": 3,
+        "atk": 874,
+        "hp": 31247,
+        "def": 157,
+        "dr": 30,
+        "crit": 3,
+        "heal": 0,
+        "chain": "Injured to Airborne",
+        "party_buff": "Range Atk +50%"
+    },
+    "Veronica": {
+        "school": "Water",
+        "tier": 3,
+        "atk": 854,
+        "hp": 29216,
+        "def": 323,
+        "dr": 16,
+        "crit": 5,
+        "heal": 0,
+        "chain": "All to Downed",
+        "party_buff": "Skill Atk +80%"
+    },
+    "Vishuvac": {
+        "school": "Fire",
+        "tier": 3,
+        "atk": 817,
+        "hp": 32536,
+        "def": 216,
+        "dr": 26,
+        "crit": 4,
+        "heal": 0,
+        "chain": "All to Injured",
+        "party_buff": "HP +40%"
     }
 }
