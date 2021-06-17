@@ -21,10 +21,27 @@ interface Props {
 
 const Guardian: React.FC<Props> = ({ guardian }) => {
     const [selected, setSelected] = useState(false);
+    const stats = (
+    <div className="portrait stats">
+        <p id="hp">
+            Element: { guardian.school } <br/>
+            HP: { guardian.hp } <br/>
+            Attack: { guardian.atk } <br/>
+            Defense: { guardian.def } <br/>
+            DR: { guardian.dr } <br/>
+            Crit %: { guardian.crit }% <br/>
+            Heal: { guardian.heal } <br/>
+            Chain: { guardian.chain } <br/>
+        </p>
+    </div>
+    );
 
     return (
         <div onClick={ () => setSelected(!selected) } className="guardian">
-            <img className="portrait" src={guardian.img} />
+            <div className="imageArea">
+                <img className="portrait" src={ guardian.img }/>
+                <div>{ selected ? stats : null }</div>
+            </div>
             <div className="description">
                 <p>{guardian.name}</p>
             </div>

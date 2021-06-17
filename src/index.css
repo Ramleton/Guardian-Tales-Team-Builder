@@ -25,7 +25,12 @@ body {
   background-color: crimson;
   padding-top: 1%;
   padding-bottom: 1%;
+  position: relative;
 }
+
+/*
+ Guardian Image, Stats and Portraits
+ */
 
 .guardian {
   background-color: chartreuse;
@@ -33,7 +38,31 @@ body {
 }
 
 .portrait {
-  width:  100%;
-  height: 100px;
-  object-fit: cover;
+  width: 100%;
+  height: 125px;
+  position: relative;
+}
+
+.imageArea {
+  width: 100%;
+  height: 125px;
+  position: relative;
+  color:bisque;
+  border-width: 5%;
+}
+
+.description {
+  position: relative;
+}
+
+.stats {
+  position: absolute;
+  color:azure;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 125px;
+  font-size: small;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
