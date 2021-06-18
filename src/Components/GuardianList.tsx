@@ -1,5 +1,6 @@
+import React, { useState } from 'react'
+
 import Guardian from "./Guardian"
-import React from 'react'
 
 type Character = {
     name: string,
@@ -21,27 +22,44 @@ interface Props {
 }
 
 const GuardianList: React.FC<Props> = ({ guardians }) => {
-    
-    // Get every guardian in <guardians> that is in <school>
+    /* 
+        <filteredGuardian> is given when the user searches for a
+        specific guardian by name. It's then used to filter the
+        table of guardians.
+    */
+    const [search, handleChange] = useState("");
+    // Get every guardian in <guardians> that is in <school> and filters by name using <filteredGuardian>
     const getGuardiansOfSchool = (school: string): JSX.Element[] => {
-        return guardians.filter((guardian) => {return guardian.school === school}).map((guardian, index) => {
-            return (<td key={index}><Guardian guardian={guardian}/></td>)
+        return guardians
+            .filter((guardian) => {return guardian.school === school})
+            .filter((guardian) => {return guardian.name.toLowerCase().includes(search.toLowerCase())})
+            .map((guardian, index) => {
+                return (<td key={index}><Guardian guardian={guardian}/></td>)
         })
     }
-    
+
     return (
-        <div className="list">
-            <table>
-                <tbody>
-                    <tr>{getGuardiansOfSchool("Light")}</tr>
-                    <tr>{getGuardiansOfSchool("Dark")}</tr>
-                    <tr>{getGuardiansOfSchool("Basic")}</tr>
-                    <tr>{getGuardiansOfSchool("Water")}</tr>
-                    <tr>{getGuardiansOfSchool("Earth")}</tr>
-                    <tr>{getGuardiansOfSchool("Fire")}</tr>
-                </tbody>
-            </table>
-        </div>
+        <>
+            <div className="guardianFilter">
+                <label htmlFor="guardianSearch">Search by Name:</label>
+                <input
+                    id="filteredGuardian" name="filteredGuardian" type="search" placeholder="Guardian Name"
+                    value={search} onChange={e => handleChange(e.target.value)}
+                />
+            </div>
+            <div className="list">
+                <table>
+                    <tbody>
+                        <tr><td className="light">Light</td>{getGuardiansOfSchool("Light")}</tr>
+                        <tr><td className="dark">Dark</td>{getGuardiansOfSchool("Dark")}</tr>
+                        <tr><td className="basic">Basic</td>{getGuardiansOfSchool("Basic")}</tr>
+                        <tr><td className="water">Water</td>{getGuardiansOfSchool("Water")}</tr>
+                        <tr><td className="earth">Earth</td>{getGuardiansOfSchool("Earth")}</tr>
+                        <tr><td className="fire">Fire</td>{getGuardiansOfSchool("Fire")}</tr>
+                    </tbody>
+                </table>
+            </div>
+        </>
     );
 }
 

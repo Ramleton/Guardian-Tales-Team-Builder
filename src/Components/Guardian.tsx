@@ -13,23 +13,23 @@ type Character = {
     chain: string,
     party_buff: string
     img: string
-}
+};
 
 interface Props {
     guardian: Character;
-}
+};
 
 const Guardian: React.FC<Props> = ({ guardian }) => {
     const [selected, setSelected] = useState(false);
     const stats = (
-    <div className="portrait stats">
+    <div className="stats">
         <p id="hp">
             Element: { guardian.school } <br/>
             HP: { guardian.hp } <br/>
             Attack: { guardian.atk } <br/>
             Defense: { guardian.def } <br/>
             DR: { guardian.dr } <br/>
-            Crit %: { guardian.crit }% <br/>
+            Crit Chance: { guardian.crit }% <br/>
             Heal: { guardian.heal } <br/>
             Chain: { guardian.chain } <br/>
         </p>
@@ -37,7 +37,7 @@ const Guardian: React.FC<Props> = ({ guardian }) => {
     );
 
     return (
-        <div onClick={ () => setSelected(!selected) } className="guardian">
+        <div onClick={ () => setSelected(!selected) } className={`guardian ${guardian.school.toLowerCase()}`}>
             <div className="imageArea">
                 <img className="portrait" src={ guardian.img }/>
                 <div>{ selected ? stats : null }</div>
