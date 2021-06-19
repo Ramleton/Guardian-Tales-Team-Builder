@@ -50,12 +50,12 @@ const GuardianList: React.FC<Props> = ({ guardians }) => {
             <div className="list">
                 <table>
                     <tbody>
-                        <tr><td className="light">Light</td>{getGuardiansOfSchool("Light")}</tr>
-                        <tr><td className="dark">Dark</td>{getGuardiansOfSchool("Dark")}</tr>
-                        <tr><td className="basic">Basic</td>{getGuardiansOfSchool("Basic")}</tr>
-                        <tr><td className="water">Water</td>{getGuardiansOfSchool("Water")}</tr>
-                        <tr><td className="earth">Earth</td>{getGuardiansOfSchool("Earth")}</tr>
-                        <tr><td className="fire">Fire</td>{getGuardiansOfSchool("Fire")}</tr>
+                        <tr><td className="element light">Light</td>{getGuardiansOfSchool("Light")}</tr>
+                        <tr><td className="element dark">Dark</td>{getGuardiansOfSchool("Dark")}</tr>
+                        <tr><td className="element basic">Basic</td>{getGuardiansOfSchool("Basic")}</tr>
+                        <tr><td className="element water">Water</td>{getGuardiansOfSchool("Water")}</tr>
+                        <tr><td className="element earth">Earth</td>{getGuardiansOfSchool("Earth")}</tr>
+                        <tr><td className="element fire">Fire</td>{getGuardiansOfSchool("Fire")}</tr>
                     </tbody>
                 </table>
             </div>
