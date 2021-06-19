@@ -1,3 +1,4 @@
+import { GuardianContext } from "./Contexts/GuardianContext";
 import GuardianList from "./Components/GuardianList";
 import Header from "./Components/Header"
 import React from "react";
@@ -10,7 +11,7 @@ const App: React.FC = () => {
     const guardians: any = Object.entries(data).map(([chrName, character]) => {
       character.name = chrName;
       character.img = `/Images/Character_Portraits/${chrName}.jpg`;
-      return character
+      return character;
     });
     return guardians
   }
@@ -18,8 +19,10 @@ const App: React.FC = () => {
   return (
       <div className="container">
         <Header text="Guardian Tales Team Builder" />
-        {/* <Team_Roster guardians={getGuardians()}/> */}
-        <GuardianList guardians={getGuardians()}/>
+        <GuardianContext.Provider value={getGuardians()}>
+          <Team_Roster />
+          <GuardianList />
+        </GuardianContext.Provider>
       </div>
   )
 }

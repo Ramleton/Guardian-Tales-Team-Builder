@@ -20,15 +20,13 @@ interface Props {
     guardians: Character[];
 }
 
-const Team_Roster: React.FC<Props> = ({ guardians }) => {
+const Team_Roster: React.FC = () => {
     return (
         <div className="roster">
             <table>
                 <tbody>
                     <tr>
-                        <td>
-                            <Guardian guardian={guardians[0]} />
-                        </td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

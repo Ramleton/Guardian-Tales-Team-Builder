@@ -1,33 +1,19 @@
-import React, { useState } from 'react'
+import { Character, GuardianContext } from '../Contexts/GuardianContext'
+import React, { useContext, useState } from 'react'
 
 import Guardian from "./Guardian"
 
-type Character = {
-    name: string,
-    school: "Earth" | "Water" | "Fire" | "Light" | "Basic" | "Dark",
-    tier: number,
-    atk: number,
-    hp: number,
-    def: number,
-    dr: number,
-    crit: number,
-    heal: number,
-    chain: string,
-    party_buff: string
-    img: string
-}
-
-interface Props {
-    guardians: Character[]
-}
-
-const GuardianList: React.FC<Props> = ({ guardians }) => {
+const GuardianList: React.FC = () => {
     /* 
         <filteredGuardian> is given when the user searches for a
         specific guardian by name. It's then used to filter the
         table of guardians.
     */
+
+    const guardians: Character[] = useContext(GuardianContext);
+        
     const [search, handleChange] = useState("");
+    
     // Get every guardian in <guardians> that is in <school> and filters by name using <filteredGuardian>
     const getGuardiansOfSchool = (school: string): JSX.Element[] => {
         return guardians
