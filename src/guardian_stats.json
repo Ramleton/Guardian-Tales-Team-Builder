@@ -260,8 +260,8 @@
         "dr": 18,
         "crit": 0,
         "heal": 0,
-        "chain": "Range Atk +50%",
-        "party_buff": "Downed to Airborne"
+        "chain": "Downed to Airborne",
+        "party_buff": "Range Atk +50%"
     },
     "Noxia": {
         "school": "Dark",

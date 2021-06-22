@@ -1,52 +1,70 @@
 import { Character, GuardianContext } from '../Contexts/GuardianContext'
 import React, { useContext, useState } from 'react'
 
-import Guardian from "./Guardian"
+import Guardian from './Guardian'
 
-const GuardianList: React.FC = () => {
-    /* 
-        <filteredGuardian> is given when the user searches for a
-        specific guardian by name. It's then used to filter the
-        table of guardians.
-    */
+interface Props {
+    buildTeam: CallableFunction
+}
 
-    const guardians: Character[] = useContext(GuardianContext);
-        
-    const [search, handleChange] = useState("");
-    
-    // Get every guardian in <guardians> that is in <school> and filters by name using <filteredGuardian>
-    const getGuardiansOfSchool = (school: string): JSX.Element[] => {
-        return guardians
-            .filter((guardian) => {return guardian.school === school})
-            .filter((guardian) => {return guardian.name.toLowerCase().includes(search.toLowerCase())})
-            .map((guardian, index) => {
-                return (<td key={index}><Guardian guardian={guardian}/></td>)
-        })
+const GuardianList: React.FC<Props> = ({ buildTeam }) => {
+
+    const guardianData: Character[] = useContext(GuardianContext);
+    const [selectedGuardians, setselectedGuardians]: [string[], CallableFunction] = useState([]);
+
+    const handleSelectedGuardian = (guardianName: string) => {
+        if (selectedGuardians.length < 4 && !selectedGuardians.includes(guardianName)) {
+            setselectedGuardians(selectedGuardians.concat([guardianName]))
+            return true;
+        } else if (selectedGuardians.includes(guardianName)) {
+            setselectedGuardians(selectedGuardians.filter(guardian => guardian !== guardianName));
+        } else {
+            alert("You already have 4 team members! Remove one to add another");
+        }
+        return false;
     }
 
+    interface GuardianElement {
+        data: Character,
+        element: JSX.Element
+    }
+
+    let guardianElements: GuardianElement[] = [];
+    
+    guardianData.forEach((data) => {guardianElements.push({data: data, element: <Guardian character={data} handleClick={handleSelectedGuardian}/>})})
+
+    // Returns a row of guardians that are of the element <element>
+    const getGuardiansOfElement = (element: string): JSX.Element => {
+        return (
+            <tr className={element.toLowerCase()}><td className="element">{element}</td>
+                {guardianElements.filter(guardian => guardian.data.school === element).map((guardian, index) => {
+                    return (<td key={`${element} ${index}`}>{guardian.element}</td>);
+                })}
+            </tr>
+        )
+    }
+    
     return (
-        <>
-            <div className="guardianFilter">
-                <label htmlFor="guardianSearch">Search by Name:</label>
-                <input
-                    id="filteredGuardian" name="filteredGuardian" type="search" placeholder="Guardian Name"
-                    value={search} onChange={e => handleChange(e.target.value)}
-                />
-            </div>
-            <div className="list">
-                <table>
-                    <tbody>
-                        <tr><td className="element light">Light</td>{getGuardiansOfSchool("Light")}</tr>
-                        <tr><td className="element dark">Dark</td>{getGuardiansOfSchool("Dark")}</tr>
-                        <tr><td className="element basic">Basic</td>{getGuardiansOfSchool("Basic")}</tr>
-                        <tr><td className="element water">Water</td>{getGuardiansOfSchool("Water")}</tr>
-                        <tr><td className="element earth">Earth</td>{getGuardiansOfSchool("Earth")}</tr>
-                        <tr><td className="element fire">Fire</td>{getGuardiansOfSchool("Fire")}</tr>
-                    </tbody>
-                </table>
-            </div>
-        </>
+        <div className="list">
+            <input type="button" value="Build Team" onClick={() => {
+                if (selectedGuardians.length === 4) {
+                    buildTeam(selectedGuardians);
+                } else {
+                    alert("Your team must contain 4 members");
+                }
+            }} />
+            <table>
+                <tbody>
+                    {getGuardiansOfElement("Light")}
+                    {getGuardiansOfElement("Dark")}
+                    {getGuardiansOfElement("Basic")}
+                    {getGuardiansOfElement("Water")}
+                    {getGuardiansOfElement("Earth")}
+                    {getGuardiansOfElement("Fire")}
+                </tbody>
+            </table>
+        </div>
     );
 }
 
-export default GuardianList
+export default GuardianList;

@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export type Character = {
+export interface Character {
     name: string,
     school: "Earth" | "Water" | "Fire" | "Light" | "Basic" | "Dark",
     tier: number,
@@ -11,7 +11,7 @@ export type Character = {
     crit: number,
     heal: number,
     chain: string,
-    party_buff: string
+    party_buff: string,
     img: string
 }
 

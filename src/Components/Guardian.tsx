@@ -1,24 +1,24 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 import { Character } from '../Contexts/GuardianContext';
 
 interface Props {
-    guardian: Character;
-};
+    character: Character,
+    handleClick?: CallableFunction
+}
 
-const Guardian: React.FC<Props> = ({ guardian }) => {
-    const [selected, setSelected] = useState(false);
+const Guardian: React.FC<Props> = ({ character, handleClick }) => {
+
+    const [selected, setselected] = useState(false);
 
     return (
-        <div onClick={ () => setSelected(!selected) } className={`guardian ${guardian.school.toLowerCase()}`}>
+        <div className="guardian" onClick={() => setselected(handleClick?.(character.name))}>
             <div className="imageArea">
-                <img className="portrait" src={ guardian.img }/>
+                <img className={(selected ? "selected-border" : "portrait-border") + " portrait"} alt="" src={character.img}/>
             </div>
-            <div className="description">
-                <p>{guardian.name}</p>
-            </div>
+            <p className="description">{character.name}</p>
         </div>
     );
 }
 
-export default Guardian
+export default Guardian;
