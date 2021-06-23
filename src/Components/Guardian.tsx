@@ -20,7 +20,7 @@ const Guardian: React.FC<Props> = ({ character, handleClick }) => {
     return (
         <div className="guardian" onClick={() => setselected(handleClick?.(character.name))}>
             <div className="imageArea">
-                <img className={(selected ? "selected-border" : "portrait-border") + " portrait"} alt="" src={character.img}/>
+                <img className={(selected ? "selected-border" : "portrait-border") + " portrait"} alt={character.name} src={character.img}/>
             </div>
             <p className="description">{shortenName()}</p>
         </div>

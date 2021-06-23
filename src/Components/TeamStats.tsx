@@ -112,8 +112,15 @@ const TeamStats: React.FC = () => {
     useEffect(() => {
         dispatch({ type: "Reset", amount: 0})
         guardians.forEach(guardian => {
-            const [buff, buffAmount] = guardian.party_buff.replace("%", "").split(" +");
-            dispatch({ type: buff, amount: parseInt(buffAmount) });
+            if (guardian.party_buff.includes(", ")) {
+                guardian.party_buff.replace("%", "").split(", ").forEach(buff => {
+                    const [buffName, buffAmount] = buff.split(" +");
+                    dispatch({ type: buffName, amount: parseInt(buffAmount) });
+                });
+            } else {
+                const [buff, buffAmount] = guardian.party_buff.replace("%", "").split(" +");
+                dispatch({ type: buff, amount: parseInt(buffAmount) });
+            }
             const toughness = guardian.hp * (1 + guardian.def/100>>0);
             dispatch({ type: "Toughness", amount: toughness});
         });
