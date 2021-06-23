@@ -11,6 +11,24 @@ body {
   background-color: darkseagreen;
 }
 
+.border {
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+.stats {
+  font-size: 32px;
+}
+
 .team-item {
   float: left;
 }
@@ -23,32 +41,36 @@ body {
 }
 
 .chain-guardian {
+  grid-column: 2;
+  width: 100px;
   border-width: 5px;
   border-style: solid;
   border-color: gainsboro;
 }
 
+.chain-left {
+  grid-column: 1;
+}
+
+.chain-right {
+  grid-column: 3;
+}
+
 .chain-img {
-  position: relative;
-  float: left;
   top: 50%;
   transform: translateY(50%);
 }
 
-.chain-item {
-  float: left;
+.chain-items {
+  display: grid;
 }
 
 .chain-list {
+  display: flex;
   margin: 0;
   padding: 10px;
   background-color: rgb(22, 21, 21);
-  border-width: 3px;
-  border-color: black;
-  border-style: solid;
-  overflow: hidden;
   list-style-type: none;
-  float: center;
 }
 
 .roster {
@@ -59,12 +81,25 @@ body {
   border-width: 3px;
 }
 
+.roster-background {
+  background-color: rgb(30, 30, 30);
+}
+
+.white {
+  color:white;
+}
+
+.party {
+  width: fit-content;
+}
+
 .centered-items {
-  background-color: darkslategray;
   display: flex;
   justify-content: center;
+}
+
+.centered-text {
   text-align: center;
-  width: 100%;
 }
 
 .guardianFilter {
@@ -118,22 +153,29 @@ body {
   background-color:blanchedalmond;
 }
 
+.roster-item {
+  width: 100px;
+}
+
 /*
  Guardian Image, Stats and Portraits
  */
 
 .guardian {
-  width: 120px;
+  width: inherit;
+  height: inherit;
   text-align: center;
 }
 
 .portrait {
-  width: 100%;
-  height: 100px;
+  width: inherit;
+  height: inherit;
   position: relative;
 }
 
 .portrait-border {
+  width: inherit;
+  height: inherit;
   border-radius: 25%;
   border-width: 5px;
   border-color: black;
@@ -141,6 +183,8 @@ body {
 }
 
 .selected-border {
+  width: inherit;
+  height: inherit;
   border-radius: 25%;
   border-width: 5px;
   border-color: greenyellow;
@@ -148,9 +192,11 @@ body {
 }
 
 .imageArea {
-  max-width: fit-content;
-  height: 100px;
-  padding-left: 8%;
+  width: 100%;
+  height: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
   position: relative;
 }
 
@@ -160,16 +206,4 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   background-color: palegoldenrod;
-}
-
-.stats {
-  position: absolute;
-  color:azure;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 125px;
-  font-size: small;
-  overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.5);
 }

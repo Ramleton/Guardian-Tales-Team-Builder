@@ -59,6 +59,7 @@ const TeamAbilityCombo: React.FC = () => {
     };
 
     const comboToElement = (combo: Combo) => {
+
         const getImgElementForType = (type: string) => {
             switch(type) {
                 case "Injured":
@@ -72,15 +73,16 @@ const TeamAbilityCombo: React.FC = () => {
             }
         }
 
-        return <ul className="chain-list">
+        return <ul className="border chain-list">
             {combo.map((char_name: string, index: number) => {
                 const guardian = guardians.filter((guardian: Character) => guardian.name === char_name)[0];
                 const [comboFrom, comboTo] = guardian ? guardian.chain.split(" to ").map(type => getImgElementForType(type)) : [<></>, <></>];
-                if (guardian.name === "Nari") {
-                    console.log(guardian.chain);
-                }
-                const guardianElement = <Guardian character={guardian} />
-                return <li key={index.toString()} >{comboFrom}<div className="chain-guardian chain-item">{guardianElement}</div>{comboTo}</li>
+                const guardianElement = <Guardian character={guardian} />;
+                return (<li className="chain-items" key={index.toString()}>
+                    <div className="chain-left">{comboFrom}</div>
+                    <div className="chain-guardian"><div>{guardianElement}</div></div>
+                    <div className="chain-right">{comboTo}</div>
+                    </li>);
             })}
         </ul>
     }
@@ -88,16 +90,16 @@ const TeamAbilityCombo: React.FC = () => {
     const combosPerGuardian: Array<Array<Combo>> = findAllCombos().map((combo: Array<string>) => nestedArrayToSeparateArrays(combo));
     const fullCombos = (
             <div>
-                <h2>Full Chains</h2>
+                <h2 className="centered-text">Full Chains</h2>
                 {combosPerGuardian.map(guardianCombo => guardianCombo.filter(combo => combo.length === 4).map(combo => comboToElement(combo)))}
-                <h2>Incomplete Chains</h2>
+                <h2 className="centered-text">Incomplete Chains</h2>
                 {combosPerGuardian.map(guardianCombo => guardianCombo.filter(combo => combo.length !== 4).map(combo => comboToElement(combo)))}
             </div>
         )
 
     return guardians.length > 0 ?
-        (<div>
-            <h1>Ability Chains</h1>
+        (<div className="white column">
+            <h1 className="centered-text">Ability Chains</h1>
             {fullCombos}
         </div>) : <></>
 }

@@ -11,8 +11,8 @@ export const Team: React.FC = () => {
 
     return (
         <div className="roster">
-            <h1>Selected Team</h1>
-            <ul className="team-list">{teamElements}</ul>
+            <h1 className="party-background centered-text">Selected Team</h1>
+            <ul className="centered-items team-list">{teamElements}</ul>
         </div>
     );
 }

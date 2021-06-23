@@ -38,7 +38,7 @@ const GuardianList: React.FC<Props> = ({ buildTeam }) => {
         return (
             <tr className={element.toLowerCase()}><td className="element">{element}</td>
                 {guardianElements.filter(guardian => guardian.data.school === element).map((guardian, index) => {
-                    return (<td key={`${element} ${index}`}>{guardian.element}</td>);
+                    return (<td className="roster-item" key={`${element} ${index}`}>{guardian.element}</td>);
                 })}
             </tr>
         )

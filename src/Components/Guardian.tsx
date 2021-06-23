@@ -11,12 +11,18 @@ const Guardian: React.FC<Props> = ({ character, handleClick }) => {
 
     const [selected, setselected] = useState(false);
 
+    const shortenName = () => {
+        return character.name.length > 10 ? character.name.split(" ").map(word => {
+            return word.match(/^[A-Za-z]+$/) ? word[0].concat(".") : word.concat(" ");
+        }) : character.name;
+    }
+
     return (
         <div className="guardian" onClick={() => setselected(handleClick?.(character.name))}>
             <div className="imageArea">
                 <img className={(selected ? "selected-border" : "portrait-border") + " portrait"} alt="" src={character.img}/>
             </div>
-            <p className="description">{character.name}</p>
+            <p className="description">{shortenName()}</p>
         </div>
     );
 }

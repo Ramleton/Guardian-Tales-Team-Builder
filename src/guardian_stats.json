@@ -9,7 +9,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Airborne to Downed",
-        "party_buff": "Range def +80%"
+        "party_buff": "Range DEF +80%"
     },
     "Android Mk. 99": {
         "school": "Light",
@@ -21,7 +21,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Downed to Injured",
-        "party_buff": "Range atk +50%"
+        "party_buff": "Range ATK +50%"
     },
     "Arabelle": {
         "school": "Dark",
@@ -33,7 +33,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Injured to Downed",
-        "party_buff": "Dark atk +50%"
+        "party_buff": "Dark ATK +50%"
     },
     "Bari": {
         "school": "Earth",
@@ -45,7 +45,7 @@
         "crit": 4,
         "heal": 0,
         "chain": "Injured to Downed",
-        "party_buff": "Skill atk +80%"
+        "party_buff": "Skill ATK +80%"
     },
     "Beth": {
         "school": "Dark",
@@ -57,7 +57,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Downed to Injured",
-        "party_buff": "Melee atk +50%"
+        "party_buff": "Melee ATK +50%"
     },
     "Bianca": {
         "school": "Water",
@@ -69,7 +69,7 @@
         "crit": 2,
         "heal": 0,
         "chain": "Airborne to Downed",
-        "party_buff": "Crit Hit chance +36%"
+        "party_buff": "Crit Hit Chance +36%"
     },
     "Eugene": {
         "school": "Light",
@@ -81,7 +81,7 @@
         "crit": 2,
         "heal": 0,
         "chain": "Airborne to Injured",
-        "party_buff": "Melee atk +50%"
+        "party_buff": "Melee ATK +50%"
     },
     "Future Knight": {
         "school": "Basic",
@@ -117,7 +117,7 @@
         "crit": 0,
         "heal": 1415,
         "chain": "All to Injured",
-        "party_buff": "crit Hit chance +36%"
+        "party_buff": "Crit Hit Chance +36%"
     },
     "Garam": {
         "school": "Water",
@@ -129,7 +129,7 @@
         "crit": 0,
         "heal": 1120,
         "chain": "Downed to Airborne",
-        "party_buff": "Water atk +50%"
+        "party_buff": "Water ATK +50%"
     },
     "Idol Captain Eva": {
         "school": "Basic",
@@ -141,7 +141,7 @@
         "crit": 6,
         "heal": 0,
         "chain": "All to Downed",
-        "party_buff": "Basic atk +50%"
+        "party_buff": "Basic ATK +50%"
     },
     "Lahn": {
         "school": "Basic",
@@ -165,7 +165,7 @@
         "crit": 8,
         "heal": 0,
         "chain": "Downed to Airborne",
-        "party_buff": "Light atk +50%"
+        "party_buff": "Light ATK +50%"
     },
     "Lilith": {
         "school": "Dark",
@@ -177,7 +177,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Injured to Downed",
-        "party_buff": "Melee atk +50%"
+        "party_buff": "Melee ATK +50%"
     },
     "Lucy": {
         "school": "Fire",
@@ -189,7 +189,7 @@
         "crit": 0,
         "heal": 1415,
         "chain": "Airborne to Downed",
-        "party_buff": "Crit Hit chance +36%"
+        "party_buff": "Crit Hit Chance +36%"
     },
     "Lupina": {
         "school": "Dark",
@@ -201,7 +201,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Injured to Airborne",
-        "party_buff": "Crit Hit chance +36%"
+        "party_buff": "Crit Hit Chance +36%"
     },
     "Lynn": {
         "school": "Fire",
@@ -213,7 +213,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Downed to Injured",
-        "party_buff": "Melee Atk +50%"
+        "party_buff": "Melee ATK +50%"
     },
     "Marina": {
         "school": "Water",
@@ -237,7 +237,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Downed to Injured",
-        "party_buff": "Crit Hit chance +36%"
+        "party_buff": "Crit Hit Chance +36%"
     },
     "Miya": {
         "school": "Fire",
@@ -249,7 +249,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Downed to Injured",
-        "party_buff": "Crit Hit chance +36%"
+        "party_buff": "Crit Hit Chance +36%"
     },
     "Nari": {
         "school": "Basic",
@@ -261,7 +261,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Downed to Airborne",
-        "party_buff": "Range Atk +50%"
+        "party_buff": "Range ATK +50%"
     },
     "Noxia": {
         "school": "Dark",
@@ -285,7 +285,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Downed to Injured",
-        "party_buff": "Def +45%"
+        "party_buff": "DEF +45%"
     },
     "Plitvice": {
         "school": "Fire",
@@ -297,7 +297,7 @@
         "crit": 3,
         "heal": 0,
         "chain": "Injured to Downed",
-        "party_buff": "Fire Atk +50%"
+        "party_buff": "Fire ATK +50%"
     },
     "Rue": {
         "school": "Earth",
@@ -309,7 +309,7 @@
         "crit": 5,
         "heal": 0,
         "chain": "Downed to Injured",
-        "party_buff": "Earth Atk +50%"
+        "party_buff": "Earth ATK +50%"
     },
     "Seaside Sohee": {
         "school": "Basic",
@@ -321,7 +321,7 @@
         "crit": 0,
         "heal": 0,
         "chain": "Injured to Airborne",
-        "party_buff": "Melee Atk +50%"
+        "party_buff": "Melee ATK +50%"
     },
     "Tinia": {
         "school": "Earth",
@@ -333,7 +333,7 @@
         "crit": 3,
         "heal": 0,
         "chain": "Injured to Airborne",
-        "party_buff": "Range Atk +50%"
+        "party_buff": "Range ATK +50%"
     },
     "Veronica": {
         "school": "Water",
@@ -345,7 +345,7 @@
         "crit": 5,
         "heal": 0,
         "chain": "All to Downed",
-        "party_buff": "Skill Atk +80%"
+        "party_buff": "Skill ATK +80%"
     },
     "Vishuvac": {
         "school": "Fire",
