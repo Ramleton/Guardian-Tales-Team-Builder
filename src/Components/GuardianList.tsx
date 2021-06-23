@@ -36,24 +36,17 @@ const GuardianList: React.FC<Props> = ({ buildTeam }) => {
     // Returns a row of guardians that are of the element <element>
     const getGuardiansOfElement = (element: string): JSX.Element => {
         return (
-            <tr className={element.toLowerCase()}><td className="element">{element}</td>
+            <tr className={element.toLowerCase()}><td className="row-desc">{element}</td>
                 {guardianElements.filter(guardian => guardian.data.school === element).map((guardian, index) => {
                     return (<td className="roster-item" key={`${element} ${index}`}>{guardian.element}</td>);
                 })}
             </tr>
         )
     }
-    
-    return (
-        <div className="list">
-            <input type="button" value="Build Team" onClick={() => {
-                if (selectedGuardians.length === 4) {
-                    buildTeam(selectedGuardians);
-                } else {
-                    alert("Your team must contain 4 members");
-                }
-            }} />
-            <table>
+
+    const tableFilteredByElement = () => {
+        return (
+            <table className="centered-items">
                 <tbody>
                     {getGuardiansOfElement("Light")}
                     {getGuardiansOfElement("Dark")}
@@ -63,6 +56,21 @@ const GuardianList: React.FC<Props> = ({ buildTeam }) => {
                     {getGuardiansOfElement("Fire")}
                 </tbody>
             </table>
+        )
+    }
+    
+    return (
+        <div className="border list">
+            <div className="table-organize white">
+                <input className="table-organize-item" type="button" value="Build Team" onClick={() => {
+                    if (selectedGuardians.length === 4) {
+                        buildTeam(selectedGuardians);
+                    } else {
+                        alert("Your team must contain 4 members");
+                    }
+                }} />
+            </div>
+            {tableFilteredByElement()}
         </div>
     );
 }

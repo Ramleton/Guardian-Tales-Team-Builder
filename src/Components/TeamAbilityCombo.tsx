@@ -80,7 +80,7 @@ const TeamAbilityCombo: React.FC = () => {
                 const guardianElement = <Guardian character={guardian} />;
                 return (<li className="chain-items" key={index.toString()}>
                     <div className="chain-left">{comboFrom}</div>
-                    <div className="chain-guardian"><div>{guardianElement}</div></div>
+                    <div className="black chain-guardian"><div>{guardianElement}</div></div>
                     <div className="chain-right">{comboTo}</div>
                     </li>);
             })}
@@ -89,17 +89,21 @@ const TeamAbilityCombo: React.FC = () => {
 
     const combosPerGuardian: Array<Array<Combo>> = findAllCombos().map((combo: Array<string>) => nestedArrayToSeparateArrays(combo));
     const fullCombos = (
-            <div>
-                <h2 className="centered-text">Full Chains</h2>
-                {combosPerGuardian.map(guardianCombo => guardianCombo.filter(combo => combo.length === 4).map(combo => comboToElement(combo)))}
-                <h2 className="centered-text">Incomplete Chains</h2>
-                {combosPerGuardian.map(guardianCombo => guardianCombo.filter(combo => combo.length !== 4).map(combo => comboToElement(combo)))}
+            <div className="row">
+                <div className="column">
+                    <h2 className="centered-text">Full Chains</h2>
+                    {combosPerGuardian.map(guardianCombo => guardianCombo.filter(combo => combo.length === 4).map(combo => comboToElement(combo)))}
+                </div>
+                <div className="column">
+                    <h2 className="centered-text">Incomplete Chains</h2>
+                    {combosPerGuardian.map(guardianCombo => guardianCombo.filter(combo => combo.length !== 4).map(combo => comboToElement(combo)))}
+                </div>
             </div>
         )
 
     return guardians.length > 0 ?
-        (<div className="white column">
-            <h1 className="centered-text">Ability Chains</h1>
+        (<div className="white">
+            <h1 className="underlined-text centered-text">Ability Chains</h1>
             {fullCombos}
         </div>) : <></>
 }

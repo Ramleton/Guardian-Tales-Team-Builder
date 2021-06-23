@@ -21,6 +21,9 @@ type State = {
     "Fire ATK": number,
     "Crit Hit Chance": number,
     "Weapon Skill Regen Speed": number,
+    "HP Recovery on Enemy Kill": number,
+    "Shield Increase on Battle Start": number,
+    "Atk, Heal for Chain Skills Targeting Injured": number,
 }
 
 type Action = {
@@ -46,6 +49,9 @@ const defaultState = {
     "Fire ATK": 0,
     "Crit Hit Chance": 0,
     "Weapon Skill Regen Speed": 0,
+    "HP Recovery on Enemy Kill": 0,
+    "Shield Increase on Battle Start": 0,
+    "Atk, Heal for Chain Skills Targeting Injured": 0,
 }
 
 function reducer(state: State, action: Action): State {
@@ -84,6 +90,12 @@ function reducer(state: State, action: Action): State {
             return ({...state, "Crit Hit Chance": state["Crit Hit Chance"] + action.amount});
         case "Weapon Skill Regen Speed":
             return ({...state, "Weapon Skill Regen Speed": state["Weapon Skill Regen Speed"] + action.amount});
+        case "HP Recovery on Enemy Kill": 
+            return ({...state, "HP Recovery on Enemy Kill": state["HP Recovery on Enemy Kill"] + action.amount});
+        case "Shield Increase on Battle Start":
+            return ({...state, "Shield Increase on Battle Start": state["Shield Increase on Battle Start"] + action.amount});
+        case "Atk, Heal for Chain Skills Targeting Injured":
+            return ({...state, "Atk, Heal for Chain Skills Targeting Injured": state["Atk, Heal for Chain Skills Targeting Injured"] + action.amount});
         case "Reset":
             return defaultState;
         default:
@@ -126,7 +138,7 @@ const TeamStats: React.FC = () => {
     return (
         <div className="column">
             {guardians.length > 0 && <>
-                <h1 className="white centered-text">Party Stats and Effects</h1>
+                <h1 className="white underlined-text centered-text">Party Stats and Effects</h1>
                 <div className="centered-items">
                     {listAllBuffs()}
                 </div>

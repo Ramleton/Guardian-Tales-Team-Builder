@@ -16,18 +16,20 @@ const TeamInfo: React.FC<Props> = ({ teamMembers }) => {
 
     const guardians = Object.values(guardianData).filter(guardian => teamMembers.includes(guardian.name));
 
-    return (
-        <div className="roster-background">
-            <TeamContext.Provider value={guardians}>
-                <div className="centered-items">
-                    <Team />
-                </div>
-                <div className="row">
-                    <TeamAbilityCombo />
-                    <TeamStats />
-                </div>
-            </TeamContext.Provider>
-        </div>
+    return (<>
+            {teamMembers.length > 0 && <>
+                <TeamContext.Provider value={guardians}>
+                    <div className="row centered-items">
+                        <Team />
+                        <TeamStats />
+                    </div>
+                    <div className="border">
+                        <TeamAbilityCombo />
+                        
+                    </div>
+                </TeamContext.Provider>
+            </>}
+        </>
     );
 }
 
