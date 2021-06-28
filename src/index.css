@@ -11,6 +11,25 @@ body {
   background-color: rgb(10, 10, 10);
 }
 
+.unselectable {
+  user-select: none;
+}
+
+.button {
+  display: block;
+  background-color: rgb(52, 201, 84);
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.button:hover {
+  background-color: greenyellow;
+  cursor: pointer;
+}
+
 .table-organize {
   display: flex;
 }
@@ -148,6 +167,11 @@ body {
   text-align: center;
   font-size: xx-large;
   font-weight: bold;
+  cursor: context-menu;
+}
+
+.cursor-context-menu {
+  cursor: context-menu;
 }
 
 /* Separate styling for each element */
@@ -178,6 +202,7 @@ body {
 
 .roster-item {
   width: 100px;
+  cursor: pointer;
 }
 
 /*

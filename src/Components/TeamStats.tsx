@@ -143,7 +143,7 @@ const TeamStats: React.FC = () => {
     }
 
     return (
-        <div className="column">
+        <div className="cursor-context-menu column">
             {guardians.length > 0 && <>
                 <h1 className="white underlined-text centered-text">Party Stats and Effects</h1>
                 <div className="centered-items">

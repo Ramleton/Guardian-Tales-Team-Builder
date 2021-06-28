@@ -1,6 +1,7 @@
 import { Character, GuardianContext } from '../Contexts/GuardianContext'
 import React, { useContext, useState } from 'react'
 
+import Button from './Button';
 import Guardian from './Guardian'
 
 interface Props {
@@ -29,16 +30,16 @@ const GuardianList: React.FC<Props> = ({ buildTeam }) => {
         element: JSX.Element
     }
 
-    let guardianElements: GuardianElement[] = [];
-    
-    guardianData.forEach((data) => {guardianElements.push({data: data, element: <Guardian character={data} handleClick={handleSelectedGuardian}/>})})
+    let guardianElements: GuardianElement[] = guardianData.map(data => {
+        return {data: data, element: <Guardian character={data} handleClick={handleSelectedGuardian}/>}
+    });
 
     // Returns a row of guardians that are of the element <element>
     const getGuardiansOfElement = (element: string): JSX.Element => {
         return (
-            <tr className={element.toLowerCase()}><td className="row-desc">{element}</td>
+            <tr className={element.toLowerCase()}><td className="row-desc unselectable">{element}</td>
                 {guardianElements.filter(guardian => guardian.data.school === element).map((guardian, index) => {
-                    return (<td className="roster-item" key={`${element} ${index}`}>{guardian.element}</td>);
+                    return (<td className="roster-item unselectable" key={`${element} ${index}`}>{guardian.element}</td>);
                 })}
             </tr>
         )
@@ -61,14 +62,15 @@ const GuardianList: React.FC<Props> = ({ buildTeam }) => {
     
     return (
         <div className="border list">
-            <div className="table-organize white">
-                <input className="table-organize-item" type="button" value="Build Team" onClick={() => {
+            <div className="table-organize">
+                <Button handleClick={() => {
                     if (selectedGuardians.length === 4) {
                         buildTeam(selectedGuardians);
                     } else {
                         alert("Your team must contain 4 members");
                     }
-                }} />
+                }
+                } text="Build Team" />
             </div>
             {tableFilteredByElement()}
         </div>

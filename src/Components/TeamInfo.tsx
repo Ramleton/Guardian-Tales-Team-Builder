@@ -19,7 +19,7 @@ const TeamInfo: React.FC<Props> = ({ teamMembers }) => {
     return (<>
             {teamMembers.length > 0 && <>
                 <TeamContext.Provider value={guardians}>
-                    <div className="row centered-items">
+                    <div className="row centered-items unselectable">
                         <Team />
                         <TeamStats />
                     </div>

@@ -78,11 +78,12 @@ const TeamAbilityCombo: React.FC = () => {
                 const guardian = guardians.filter((guardian: Character) => guardian.name === char_name)[0];
                 const [comboFrom, comboTo] = guardian ? guardian.chain.split(" to ").map(type => getImgElementForType(type)) : [<></>, <></>];
                 const guardianElement = <Guardian character={guardian} />;
-                return (<li className="chain-items" key={index.toString()}>
+                return (
+                <li className="chain-items" key={index}>
                     <div className="chain-left">{comboFrom}</div>
                     <div className="black chain-guardian"><div>{guardianElement}</div></div>
                     <div className="chain-right">{comboTo}</div>
-                    </li>);
+                </li>);
             })}
         </ul>
     }
@@ -102,7 +103,7 @@ const TeamAbilityCombo: React.FC = () => {
         )
 
     return guardians.length > 0 ?
-        (<div className="white">
+        (<div className="cursor-context-menu white unselectable">
             <h1 className="underlined-text centered-text">Ability Chains</h1>
             {fullCombos}
         </div>) : <></>
