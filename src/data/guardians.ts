@@ -577,7 +577,7 @@ const guardians: guardiansList = {
 		partyBuff: ['Skill ATK', 72]
 	},
 	'Marianne': {
-		name: 'Marianna',
+		name: 'Marianne',
 		element: 'Earth',
 		tier: 2,
 		atk: 713,
@@ -668,7 +668,7 @@ const guardians: guardiansList = {
 		partyBuff: ['DEF', 42]
 	},
 	'Yuze': {
-		name: 'Yuza',
+		name: 'Yuze',
 		element: 'Dark',
 		tier: 2,
 		atk: 661,

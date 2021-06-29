@@ -1,5 +1,6 @@
 import './App.css'
 
+import GuardianLis from 'components/GuardianList/GuardianList'
 import GuardianSelector from 'components/GuardianSelector'
 import TeamCombos from 'components/TeamCombos'
 import TeamInfo from 'components/TeamInfo/TeamInfo'
@@ -8,7 +9,11 @@ import data, { guardianData } from 'data/guardians'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
+interface container {
+	area: string;
+}
+
+const Container = styled.div<container>`
 	position: absolute;
 	top: 8px;
 	left: 8px;
@@ -16,11 +21,11 @@ const Container = styled.div`
 	height: calc(100% - 16px);
 
 	display: grid;
-	gap: 16px;
+	gap: 8px;
 
 	grid-template-columns: 2fr 1fr;
 	grid-template-rows: 200px 100px 3fr;
-	grid-template-areas: "selector stats" "info stats" "combo combo";
+	grid-template-areas: ${props => props.area};
 `
 
 const App: React.FC = () => {
@@ -77,12 +82,14 @@ const App: React.FC = () => {
 		}
 	])
 
+	const [toggleList, setToggleList] = useState(false);
+
 	return (
-		<Container>
-			<GuardianSelector guardians={guardians} setGuardians={setGuardians} />
+		<Container area={toggleList ? '"selector stats" "list stats" "list stats"' : '"selector stats" "info stats" "combo combo"'}>
+			<GuardianSelector guardians={guardians} setGuardians={setGuardians} setToggleList={setToggleList} />
 			<TeamStats />
-			<TeamInfo />
-			<TeamCombos />
+			{ toggleList ? <GuardianLis /> : <TeamInfo />}
+			{ !toggleList && <TeamCombos />}
 		</Container>
 	)
 }
