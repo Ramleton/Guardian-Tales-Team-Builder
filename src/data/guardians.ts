@@ -757,6 +757,19 @@ const guardians: guardiansList = {
 		heal: 0,
 		chain: 'Airborne to Injured',
 		partyBuff: ['Range DEF', 66]
+	},
+	'Lifeguard Yuze': {
+		name: 'Lifeguard Yuze',
+		element: 'Water',
+		tier: 3,
+		atk: 845,
+		hp: 32442,
+		def: 172,
+		dr: 16,
+		crit: 4,
+		heal: 0,
+		chain: 'Downed to Airborne',
+		partyBuff: ['Weapon Skill Regen Speed', 30]
 	}
 }
 

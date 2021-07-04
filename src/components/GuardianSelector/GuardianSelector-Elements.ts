@@ -7,12 +7,16 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 20px;
 `
 
-export const Icon = styled.img`
+interface icon {
+	selected: boolean;
+}
+
+export const Icon = styled.img<icon>`
 	height: 150px;
 	width: 150px;
-	padding: 20px;
-	
 	border-radius: 50px;
+	border: ${props => props.selected ? 'green' : 'gray'} solid 5px;
 `

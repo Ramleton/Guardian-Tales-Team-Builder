@@ -1,5 +1,5 @@
 import data, { guardianData } from 'data/guardians'
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Container, GuardianIcon, GuardianLabel, GuardianWrapper, IconWrapper, ListContainer, ListTitle, TitleText } from './GuardianList-Elements'
 
@@ -17,7 +17,12 @@ interface elementData {
 	Fire: elementRow;
 }
 
-const GuardianList: React.FC = () => {
+interface GuardianListComponent {
+	slot: number;
+	setGuardian: (slot: number, guardian: guardianData) => void;
+}
+
+const GuardianList: React.FC<GuardianListComponent> = ({ slot, setGuardian }) => {
 
 	const guardians = (() => {
 		let out: elementData = {
@@ -32,6 +37,8 @@ const GuardianList: React.FC = () => {
 		return out
 	})()
 
+	const [hoveredGuardian, setHoveredGuardian] = useState<guardianData | null>(null)
+
 	return (
 		<Container>
 			<ListContainer>
@@ -44,9 +51,14 @@ const GuardianList: React.FC = () => {
 							<IconWrapper bgColor={color[0]}>
 								{
 									guardians.map((guardian: guardianData) => {
-										return <GuardianWrapper key={guardian.name}>
+										return <GuardianWrapper
+											key={guardian.name}
+											onMouseDown={() => setGuardian(slot, guardian)}
+											onMouseEnter={() => setHoveredGuardian(guardian)}
+											onMouseLeave={() => setHoveredGuardian(null)}
+										>
 											<GuardianIcon src={`images/guardians/${guardian?.name.replace('/', '')}.jpg`} />
-											<GuardianLabel>{guardian.name.replace(' ', '\n')}</GuardianLabel>
+											<GuardianLabel toggle={hoveredGuardian?.name === guardian.name}>{guardian.name.replace(' ', '\n')}</GuardianLabel>
 										</GuardianWrapper>
 									})
 								}

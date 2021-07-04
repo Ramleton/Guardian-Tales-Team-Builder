@@ -52,12 +52,17 @@ export const GuardianIcon = styled.img`
 	border-radius: 50px;
 `
 
-export const GuardianLabel = styled.p`
+interface guardianLabel {
+	toggle: boolean;
+}
+
+export const GuardianLabel = styled.p<guardianLabel>`
 	font-size: 0.8rem;
 	white-space: pre-line;
 	position: absolute;
-	bottom: 2px;
+	bottom: 4px;
 	left: 6px;
+	visibility: ${props => props.toggle ? 'visible' : 'hidden'};
 	text-shadow:
 		-1px -1px 0 #000,
 		-1px 1px 0 #000,
