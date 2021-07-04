@@ -47,7 +47,7 @@ const App: React.FC = () => {
 	return (
 		<Container area={toggleList ? '"selector stats" "list stats" "list stats"' : '"selector stats" "info stats" "combo combo"'}>
 			<GuardianSelector guardians={guardians} selectedGuardian={selectedSlot} setSelectedGuardian={setSelectedSlot} setGuardians={setGuardians} setToggleList={setToggleList} />
-			<TeamStats />
+			<TeamStats guardians={guardians} />
 			{ toggleList ? <GuardianList slot={selectedSlot} setGuardian={setGuardian} /> : <TeamInfo />}
 			{ !toggleList && <TeamCombos />}
 		</Container>
